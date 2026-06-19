@@ -1,0 +1,19 @@
+# Build output
+target/
+
+# The app under test is downloaded by the build, never committed
+apps/*.apk
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.classpath
+.project
+.settings/
+
+# OS
+.DS_Store
+
+# Logs
+*.log
