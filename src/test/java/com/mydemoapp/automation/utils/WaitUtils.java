@@ -2,6 +2,7 @@ package com.mydemoapp.automation.utils;
 
 import com.mydemoapp.automation.config.ConfigReader;
 import io.appium.java_client.android.AndroidDriver;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -29,5 +30,10 @@ public final class WaitUtils {
 
     public static boolean waitForInvisible(AndroidDriver driver, WebElement element) {
         return waitFor(driver).until(ExpectedConditions.invisibilityOf(element));
+    }
+
+    /** Waits for a dynamically-located element (not a PageFactory field) to appear in the DOM. */
+    public static WebElement waitForPresence(AndroidDriver driver, By locator) {
+        return waitFor(driver).until(ExpectedConditions.presenceOfElementLocated(locator));
     }
 }

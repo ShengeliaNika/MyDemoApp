@@ -1,6 +1,7 @@
 package com.mydemoapp.automation.pages;
 
 import com.mydemoapp.automation.pages.components.AppHeader;
+import com.mydemoapp.automation.utils.WaitUtils;
 import io.appium.java_client.AppiumBy;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.pagefactory.AndroidFindBy;
@@ -48,7 +49,7 @@ public class CatalogPage extends BasePage {
     public ProductDetailPage selectProduct(String productName) {
         String selector = "new UiSelector().text(\"" + productName + "\")"
                 + ".fromParent(new UiSelector().resourceId(\"com.saucelabs.mydemoapp.android:id/productIV\"))";
-        WebElement productImage = driver.findElement(AppiumBy.androidUIAutomator(selector));
+        WebElement productImage = WaitUtils.waitForPresence(driver, AppiumBy.androidUIAutomator(selector));
         click(productImage);
         return new ProductDetailPage(driver);
     }

@@ -6,6 +6,7 @@ import io.appium.java_client.service.local.flags.GeneralServerFlag;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 
@@ -30,14 +31,16 @@ public final class AppiumServerManager {
         }
 
         URL url = toUrl(serverUrl);
+        File logFile = new File("target/appium-server.log");
         AppiumServiceBuilder builder = new AppiumServiceBuilder()
                 .withIPAddress(url.getHost())
                 .usingPort(url.getPort())
-                .withArgument(GeneralServerFlag.SESSION_OVERRIDE);
+                .withArgument(GeneralServerFlag.SESSION_OVERRIDE)
+                .withLogFile(logFile);
 
         service = builder.build();
         service.start();
-        LOGGER.info("Local Appium server started at {}", serverUrl);
+        LOGGER.info("Local Appium server started at {} (log: {})", serverUrl, logFile.getAbsolutePath());
     }
 
     public static synchronized void stop() {
