@@ -5,13 +5,7 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 
-/**
- * The slide-out navigation drawer. "Login"/"Logout" are matched by
- * accessibility id (the app sets a distinct {@code contentDescription} for
- * that entry specifically so it can be identified regardless of its label),
- * the remaining static entries are matched by their visible label since the
- * app does not expose resource-ids for individual drawer rows.
- */
+/** The slide-out navigation drawer; rows have no resource-ids, so most are matched by visible label. */
 public class MenuPage extends BasePage {
 
     @AndroidFindBy(accessibility = "Login Menu Item")
@@ -29,7 +23,7 @@ public class MenuPage extends BasePage {
     @AndroidFindBy(uiAutomator = "new UiSelector().text(\"WebView\")")
     private WebElement webViewMenuItem;
 
-    // Native AlertDialog shown by "Log Out" - standard AOSP button ids.
+    // Native AlertDialog confirming "Log Out" - standard AOSP button ids.
     @AndroidFindBy(id = "android:id/button1")
     private WebElement logoutConfirmButton;
 
@@ -58,10 +52,6 @@ public class MenuPage extends BasePage {
         return new AboutPage(driver);
     }
 
-    /**
-     * Opens "Log Out" and confirms the dialog. The app restarts {@code MainActivity}
-     * and lands back on the Login screen (see {@code MainActivity#showLogoutAlertDialog}).
-     */
     @Step("Log out and confirm the dialog")
     public LoginPage logout() {
         click(logoutMenuItem);

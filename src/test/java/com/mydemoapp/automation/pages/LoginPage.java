@@ -5,12 +5,7 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 
-/**
- * The Login screen, reached from {@link MenuPage#openLogin()}.
- * Any non-empty password authenticates any username except
- * {@code alice@example.com}, which the app hard-codes as locked out
- * (see {@code LoginFragment#loginWithEmail}).
- */
+/** Any non-empty password authenticates any username except alice@example.com, which the app locks out. */
 public class LoginPage extends BasePage {
 
     public static final String STANDARD_USER = "bob@example.com";

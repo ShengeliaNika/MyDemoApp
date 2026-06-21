@@ -1,10 +1,6 @@
 package com.mydemoapp.automation.models;
 
-/**
- * Immutable carrier for the "Enter a shipping address" checkout form, used
- * to avoid long, error-prone parameter lists in page object methods and
- * test data builders.
- */
+/** Immutable carrier for the "Enter a shipping address" checkout form. */
 public record ShippingAddress(
         String fullName,
         String addressLine1,

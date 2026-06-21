@@ -6,12 +6,7 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 
-/**
- * The top header bar (hamburger menu, cart icon/badge, sort icon) is part of
- * {@code MainActivity}'s layout and is present above every fragment, so it
- * is modeled once as a component and composed into the pages that need it
- * instead of being redeclared on each one.
- */
+/** Header bar (menu, cart) belongs to MainActivity's layout, so it's modeled once and composed into pages. */
 public class AppHeader extends BasePage {
 
     @AndroidFindBy(id = "com.saucelabs.mydemoapp.android:id/menuIV")

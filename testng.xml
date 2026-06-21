@@ -3,14 +3,11 @@
 <suite name="My Demo App - Android Suite" verbose="1">
 
     <listeners>
-        <!-- Produces target/allure-results, consumed by the allure-maven plugin / Allure CLI -->
         <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
-        <!-- Attaches a device screenshot to the report on failure -->
         <listener class-name="com.mydemoapp.automation.listeners.AllureScreenshotListener"/>
     </listeners>
 
-    <!-- Runs sequentially: every test reinstalls the app on the single configured
-         device/emulator, so concurrent sessions would race for the same device. -->
+    <!-- Sequential: all tests target the same single device/emulator. -->
     <test name="Login and Logout">
         <classes>
             <class name="com.mydemoapp.automation.tests.LoginLogoutTests"/>

@@ -39,12 +39,8 @@ public class CatalogPage extends BasePage {
         return new CartPage(driver);
     }
 
-    /**
-     * Taps a product card in the catalog by its visible title and opens its detail page.
-     * The app wires the navigation click listener to the product image, not the title
-     * text (see {@code ProductsAdapter}), so this locates the title and then steps to
-     * the sibling image via {@code UiSelector#fromParent} rather than guessing an index.
-     */
+    // The app wires the click listener to the product image, not its title text,
+    // so this finds the title and steps to the sibling image via fromParent.
     @Step("Select product \"{productName}\" from the catalog")
     public ProductDetailPage selectProduct(String productName) {
         String selector = "new UiSelector().text(\"" + productName + "\")"

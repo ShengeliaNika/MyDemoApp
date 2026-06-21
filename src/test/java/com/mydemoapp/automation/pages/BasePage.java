@@ -9,12 +9,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.time.Duration;
 
-/**
- * Common ancestor for every Page Object. Initializes {@code @AndroidFindBy}
- * fields via {@link AppiumFieldDecorator} (Appium's PageFactory) and provides
- * small, intention-revealing wrappers around raw Selenium calls so that
- * concrete pages read like user actions, not driver plumbing.
- */
+/** Common ancestor for every Page Object; initializes {@code @AndroidFindBy} fields via PageFactory. */
 public abstract class BasePage {
 
     protected final AndroidDriver driver;

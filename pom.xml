@@ -25,9 +25,7 @@
         <java-client.version>10.1.1</java-client.version>
         <testng.version>7.12.0</testng.version>
         <allure.version>2.35.2</allure.version>
-        <!-- allure-commandline (used to render the HTML report) is a separate
-             distribution from the allure-testng library above and versions
-             independently; 2.35.2 was never published for it. -->
+        <!-- allure-commandline versions independently from allure-testng; 2.35.2 doesn't exist for it. -->
         <allure-commandline.version>2.43.0</allure-commandline.version>
         <aspectj.version>1.9.25</aspectj.version>
         <slf4j.version>2.0.18</slf4j.version>

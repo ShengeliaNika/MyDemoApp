@@ -10,12 +10,7 @@ import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 
-/**
- * Starts and stops a local Appium server for the duration of the test run.
- * Kept separate from {@link DriverFactory} so a CI pipeline or a developer
- * can opt out (see {@code appium.server.autostart} in config.properties) and
- * point the suite at a server/cloud grid that is already running.
- */
+/** Starts and stops a local Appium server for the test run; can be disabled via {@code appium.server.autostart}. */
 public final class AppiumServerManager {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(AppiumServerManager.class);

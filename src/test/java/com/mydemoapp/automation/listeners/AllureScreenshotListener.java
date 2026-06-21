@@ -11,12 +11,7 @@ import org.testng.ITestResult;
 
 import java.io.ByteArrayInputStream;
 
-/**
- * Attaches a device screenshot to the Allure report whenever a test fails,
- * so a failure can be diagnosed from the report alone without re-running it.
- * Registered in {@code testng.xml} alongside Allure's own {@code AllureTestNg}
- * listener (which is what actually produces the result files this enriches).
- */
+/** Attaches a device screenshot to the Allure report whenever a test fails. */
 public class AllureScreenshotListener implements ITestListener {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(AllureScreenshotListener.class);

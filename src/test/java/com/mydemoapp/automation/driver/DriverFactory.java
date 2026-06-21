@@ -9,12 +9,7 @@ import java.net.URL;
 import java.nio.file.Path;
 import java.time.Duration;
 
-/**
- * Builds and tears down the {@link AndroidDriver} for the running test.
- * The driver is held in a {@link ThreadLocal} so the suite can later be
- * switched to parallel execution (per-class/per-method) without any change
- * to page objects or tests.
- */
+/** Builds and tears down the {@link AndroidDriver} for the running test. */
 public final class DriverFactory {
 
     private static final ThreadLocal<AndroidDriver> DRIVER = new ThreadLocal<>();

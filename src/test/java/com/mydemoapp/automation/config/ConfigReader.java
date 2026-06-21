@@ -4,12 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
-/**
- * Loads {@code config.properties} once and exposes typed accessors.
- * Any value can be overridden at run time with a matching {@code -Dkey=value}
- * system property, e.g. {@code -Dplatform.version=14} for a CI device matrix,
- * without touching the file.
- */
+/** Loads {@code config.properties}; any value can be overridden with a matching {@code -Dkey=value}. */
 public final class ConfigReader {
 
     private static final String CONFIG_FILE = "config.properties";

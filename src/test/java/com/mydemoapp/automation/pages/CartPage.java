@@ -20,9 +20,7 @@ public class CartPage extends BasePage {
     @AndroidFindBy(id = "com.saucelabs.mydemoapp.android:id/totalPriceTV")
     private WebElement totalPriceText;
 
-    // Same resource-id ("cartBt") is reused by the app for both "Proceed To Checkout"
-    // (non-empty cart) and "Add to cart" on other screens; here it always resolves to
-    // the checkout button because the empty-cart state hides this view entirely.
+    // The app reuses this resource-id for "Add to cart" on other screens too.
     @AndroidFindBy(id = "com.saucelabs.mydemoapp.android:id/cartBt")
     private WebElement proceedToCheckoutButton;
 
@@ -46,18 +44,13 @@ public class CartPage extends BasePage {
         return textOf(totalPriceText);
     }
 
-    /**
-     * Taps "Proceed To Checkout". Requires the user to already be logged in:
-     * the app only routes here to the shipping-address form; for a guest it
-     * routes to the Login screen instead (see {@link #proceedToCheckoutAsGuest()}).
-     */
     @Step("Proceed to checkout")
     public CheckoutInfoPage proceedToCheckout() {
         click(proceedToCheckoutButton);
         return new CheckoutInfoPage(driver);
     }
 
-    /** Taps "Proceed To Checkout" as a guest, which the app redirects to the Login screen. */
+    // Same button; a guest gets redirected to the Login screen instead of the shipping form.
     @Step("Proceed to checkout as a guest")
     public LoginPage proceedToCheckoutAsGuest() {
         click(proceedToCheckoutButton);
