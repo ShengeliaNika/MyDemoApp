@@ -17,3 +17,4 @@ apps/*.apk
 
 # Logs
 *.log
+*.claude
